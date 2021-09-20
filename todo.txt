@@ -1,0 +1,3 @@
+Finish out roll command
+Learn and implement a lock channel feature
+Learn some of the other features such as muting a user
