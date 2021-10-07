@@ -69,15 +69,47 @@ commandFiles.forEach(file => {
 
 
 
+/* 
+//There are a bunch of listener events we can have the discord bot listen for. Like for
+//example on message. which is a popular one like we have on the bottoms. This is
+//used for communicating with the bot
+
+//Discord made some changes to this. The bot will no not recieve certain events unless
+//we go to the developer portal and enbale it. 
+*/
+client.on('guildMemberAdd', member  => {
+    const channel = client.channels.cache.find(channel => channel.name === 'hello')
+    console.log(channel);
+    if(channel) {
+        console.log('We have reached this in the guildMemberAdd method');
+    }
+    /*  
+    This uses the discord user object. When we concatenate this with a string
+    it will instead return the user's method instead of the user object. Handy 
+    */
+
+    channel.send(`Welcome to the server ${member.user}`);
+    //member.user.send('Welcome to the server!')
+});
 
 
 
-
-
+/* 
 //The hello world of discord bot. Set up a new message event where the bot is
 //listening on. The msg is and object and we want to get the content of the object.
 //if it starts with ping then the bot will reply with pong.
+*/
 client.on('message', msg => {
+    console.log('We entered message event');
+
+    // msg.guild.roles.cache.find(role => role.name === 'Nope')
+    
+    
+
+
+    //msg.client.users.cache.find(user => user.username)
+    //find and the user using the username and return the object. This will allow
+    //us to add the user to the respective role which in this case will be the muted role.
 
     //check to see if the message starts with the require prefix or if the message
     //did not originate from the bot. We exit the code early for effieciency.
@@ -88,16 +120,20 @@ client.on('message', msg => {
     //spaces/whitespace.
     const args = msg.content.slice(prefix.length).split(/ +/)
 
+    /*     
     //The shift method removes the left most element in the array and returns it.
     //We also want to sure the command is streamline so we turn into lowercase.
+    */
     const command = args.shift().toLowerCase();
 
+    /*
     //In all of our command process it all follows the same basic formant.
     //Within the client we create a module called commands. Commands is a collection
     //which maps the command name to the respective js file object which we obtain using
     //the require methond in node.js which runs the js file and returns an object
     //Within the object, we have several things such as a name and description but we
-    //also have the execute method which meat of the command.
+    //also have the execute method which meat of the command. 
+    */
     if(command === 'ping') {
         console.log(command);
         client.commands.get('ping').execute(msg,args);
@@ -113,6 +149,12 @@ client.on('message', msg => {
     }
     if(command === 'lock') {
         client.commands.get('lock').execute(msg, args);
+    }
+    if(command === 'mute') {
+        client.commands.get('mute').execute(msg,args);
+    }
+    if(command === 'unmute') {
+        client.commands.get('unmute').execute(msg,args);
     }
     
 })
