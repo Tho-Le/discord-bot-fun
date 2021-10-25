@@ -100,7 +100,7 @@ client.on('guildMemberAdd', member  => {
 //if it starts with ping then the bot will reply with pong.
 */
 client.on('message', msg => {
-    console.log('We entered message event');
+    //console.log('We entered message event');
 
     // msg.guild.roles.cache.find(role => role.name === 'Nope')
     
@@ -156,7 +156,18 @@ client.on('message', msg => {
     if(command === 'unmute') {
         client.commands.get('unmute').execute(msg,args);
     }
-    
+    if(command === 'tableflip') {
+        client.commands.get('tableflip').execute(msg,args);
+    }
+    if(command === 'weather') {
+        client.commands.get('weather').execute(msg, args);
+    }
+    if(command === 'gif') {
+        client.commands.get('gif').execute(msg,args);
+    }
+    if(command === 'dnd5') {
+        client.commands.get('dnd5').execute(msg,args);
+    }
 })
 
 

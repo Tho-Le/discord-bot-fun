@@ -4,6 +4,6 @@ module.exports = {
     //execute is just a name. can be called anything.
     execute(message, args) {
         console.log('we entered ping.js')
-        message.channel.send('pong');
+        message.channel.send("```Here is your random gif\nHello!```");
     }
 };
