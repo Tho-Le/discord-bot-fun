@@ -168,6 +168,9 @@ client.on('message', msg => {
     if(command === 'dnd5') {
         client.commands.get('dnd5').execute(msg,args);
     }
+    if(command === 'nasa') {
+        client.commands.get('nasa').execute(msg,args);
+    }
 })
 
 

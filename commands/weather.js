@@ -12,7 +12,7 @@ module.exports = {
         const city = weather.name;
         const tempInKelvin = parseInt(weather.main.temp);
         const weatherInFarenheit = (tempInKelvin - 273.15) * 9 / 5 + 32
-        message.channel.send(`The weather is ${Math.floor(weatherInFarenheit)} in ${city}`);
+        message.channel.send(`The weather is ${Math.floor(weatherInFarenheit)} degress Farenheit in ${city}`);
 
     }
 }

@@ -88,18 +88,50 @@ module.exports = {
                 const dnd5Monsters = await fetch(monsterURL)
                 .then(response => response.json())
                 .catch(console.error);
+                if(dnd5Monsters.hasOwnProperty('error')) {
+                    message.channel.send('Monster does not exist. Make sure the spelling is correct')
+                    .then(console.log('Message was send successfully'))
+                    .catch(console.error);
+                    return;
+                }
                 console.log(dnd5Monsters.name);
                 const monsterEmbed = new MessageEmbed()
+                //.setAuthor(dnd5Monsters.name)
                 .setTitle(dnd5Monsters.name)
                 .addFields(
+                    //Hp of the monster
+                    {name: 'Hit Points', value: dnd5Monsters.hit_points},
+                    {name: 'Alignnment', value: dnd5Monsters.alignment},
+                    {name: 'Challenge Rating', value: dnd5Monsters.challenge_rating},
+
+                    //There are the special abilities of the monsters
+                    {name: 'Special Traits', value : 'These are the characteristics/special abilities that the monster has'},
                     {name: `${dnd5Monsters.special_abilities[0] === undefined ? 'None' : dnd5Monsters.special_abilities[0].name}`
-                , value: `${dnd5Monsters.special_abilities[0] === undefined ? 'None' : dnd5Monsters.special_abilities[0].desc}`},
+                , value: `${dnd5Monsters.special_abilities[0] === undefined ? 'None' : dnd5Monsters.special_abilities[0].desc}`,inline: true},
                     {name: `${dnd5Monsters.special_abilities[1] === undefined ? 'None' : dnd5Monsters.special_abilities[1].name}`
-                , value: `${dnd5Monsters.special_abilities[1] === undefined ? 'None' : dnd5Monsters.special_abilities[1].desc}`},
+                , value: `${dnd5Monsters.special_abilities[1] === undefined ? 'None' : dnd5Monsters.special_abilities[1].desc}`,inline:true},
                     {name: `${dnd5Monsters.special_abilities[2] === undefined ? 'None' : dnd5Monsters.special_abilities[2].name}`
-                , value: `${dnd5Monsters.special_abilities[2] === undefined ? 'None' : dnd5Monsters.special_abilities[2].desc}`},
+                , value: `${dnd5Monsters.special_abilities[2] === undefined ? 'None' : dnd5Monsters.special_abilities[2].desc}`,inline: true},
                     {name: `${dnd5Monsters.special_abilities[3] === undefined ? 'None' : dnd5Monsters.special_abilities[3].name}`
-                , value: `${dnd5Monsters.special_abilities[3] === undefined ? 'None' : dnd5Monsters.special_abilities[3].desc}`},
+                , value: `${dnd5Monsters.special_abilities[3] === undefined ? 'None' : dnd5Monsters.special_abilities[3].desc}`,inline: true},
+
+                //These are the actions of the monster
+                {name: 'Monster Actions', value: 'There are the type of actions that the monster can use'},
+                    {name: `${dnd5Monsters.actions[0] === undefined ? 'None' : dnd5Monsters.actions[0].name}`
+                , value: `${dnd5Monsters.actions[0] === undefined ? 'None' : dnd5Monsters.actions[0].desc}` ,inline: true},
+                    {name: `${dnd5Monsters.actions[1] === undefined ? 'None' : dnd5Monsters.actions[1].name}`
+                , value: `${dnd5Monsters.actions[1] === undefined ? 'None' : dnd5Monsters.actions[1].desc}`, inline: true},
+                    {name: `${dnd5Monsters.actions[2] === undefined ? 'None' : dnd5Monsters.actions[2].name}`
+                , value: `${dnd5Monsters.actions[2] === undefined ? 'None' : dnd5Monsters.actions[2].desc}`, inline: true},
+                    {name: `${dnd5Monsters.actions[3] === undefined ? 'None' : dnd5Monsters.actions[3].name}`
+                , value: `${dnd5Monsters.actions[3] === undefined ? 'None' : dnd5Monsters.actions[3].desc}`,inline: true},
+                    {name: `${dnd5Monsters.actions[4] === undefined ? 'None' : dnd5Monsters.actions[4].name}`
+                , value: `${dnd5Monsters.actions[4] === undefined ? 'None' : dnd5Monsters.actions[4].desc}`,inline: true},
+                    {name: `${dnd5Monsters.actions[5] === undefined ? 'None' : dnd5Monsters.actions[5].name}`
+                , value: `${dnd5Monsters.actions[5] === undefined ? 'None' : dnd5Monsters.actions[5].desc}`,inline: true},
+                    {name: `${dnd5Monsters.actions[6] === undefined ? 'None' : dnd5Monsters.actions[6].name}`
+                , value: `${dnd5Monsters.actions[6] === undefined ? 'None' : dnd5Monsters.actions[6].desc}`,inline: true},
+
                 )
                 
 

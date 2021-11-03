@@ -5,4 +5,4 @@ implement giphy and give the user an option to get a random gif. DONE
 flesh out giphy and add ability to add tags
 do some error checking on most of the commands
 implement a help command
-do some for discord markdown to help formant discord messages.
+do some for discord markdown to help formant discord messages. DONE
