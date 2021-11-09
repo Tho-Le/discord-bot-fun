@@ -2,6 +2,11 @@ const fetch = require('node-fetch');
 
 const {MessageEmbed} = require('discord.js');
 
+const racesDesc = require('./resources/dnd5Races')
+
+
+
+
 module.exports = {
     name: 'dnd5',
     description: 'return a help from all',
@@ -29,7 +34,7 @@ module.exports = {
             );
             message.channel.send(dndGuideEmbed);
         }
-        else if(args[0] === 'spells') {
+        else if(args[0].toLowerCase() === 'spells') {
             let spellsURL = 'https://www.dnd5eapi.co/api/spells/'
             if(args.length === 2) {
                 spellsURL += args[1]
@@ -81,7 +86,7 @@ module.exports = {
             .then(console.log('message was send successfully'))
             .catch(console.error);
         }
-        else if(args[0] === 'monsters') {
+        else if(args[0].toLowerCase() === 'monsters') {
             let monsterURL = 'https://www.dnd5eapi.co/api/monsters/';
             if(args.length === 2) {
                 monsterURL += args[1];
@@ -160,6 +165,62 @@ module.exports = {
             
 
         }
+        else if(args[0].toLowerCase() === 'races') {
+            let racesURL = 'https://www.dnd5eapi.co/api/races/';
+            if(args.length == 2) {
+                racesURL += args[1];
+                const dnd5Race = await fetch(racesURL)
+                .then(response => response.json())
+                .catch(console.error);
+                if(dnd5Race.hasOwnProperty('error')) {
+                    message.channel.send('Error')
+                    .then(console.log('Error message send successfully'))
+                    .catch(console.error);
+                    return;
+                }
+                console.log(racesDesc.races.get(args[1]));
+                let raceEmbed = new MessageEmbed()
+                .setTitle(dnd5Race.name)
+                .setDescription(racesDesc.races.get(args[1]))
+                .addFields(
+                    {name: 'Age', value: dnd5Race.age},
+                    {name: 'Alignment', value: dnd5Race.alignment},
+                    {name: 'Size', value: dnd5Race.size},
+                    {name: 'Speed', value : dnd5Race.speed}
+                )
+                message.channel.send(raceEmbed)
+                .then(console.log('Race Embed sent successfully'))
+                .catch(console.error)
+                return;
+            }
+            let strRaces = '';
+            const dnd5Races = await fetch(racesURL)
+            .then(response => response.json())
+            .catch(console.error)
+
+            dnd5Races.results.forEach(race => {
+                console.log(race);
+                strRaces += race.name + ', ';
+            })
+            message.channel.send(strRaces)
+            .then(console.log('Races message sent successfully'))
+            .catch(console.error)
+
+        }
+        else if(args[0] === 'classes') {
+            let classesURL = 'https://www.dnd5eapi.co/api/classes/';
+        }
+        else if(args[0] === 'features') {
+            let featuresURL = 'https://www.dnd5eapi.co/api/features/';
+        }
+        else if(args[0] === 'equipment') {
+            let equipmentURL = 'https://www.dnd5eapi.co/api/equipment';
+        }
+        else if(args[0] === 'traits') {
+            let traitsURL = 'https://www.dnd5eapi.co/api/traits/'
+        }
+
+
 
         
     }

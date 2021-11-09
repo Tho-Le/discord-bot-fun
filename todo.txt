@@ -2,7 +2,8 @@ Finish out roll command --- DONE. Can further add other features
 Learn and implement a lock channel feature --- 
 Learn some of the other features such as muting a user ---DONE
 implement giphy and give the user an option to get a random gif. DONE
-flesh out giphy and add ability to add tags
+flesh out giphy and add ability to add tags --- somewhat done. Cane properly be improve to include ratings
 do some error checking on most of the commands
 implement a help command
 do some for discord markdown to help formant discord messages. DONE
+implement a feature for the bot to be able to join the voice channel of the user.

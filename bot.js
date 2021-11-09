@@ -171,6 +171,9 @@ client.on('message', msg => {
     if(command === 'nasa') {
         client.commands.get('nasa').execute(msg,args);
     }
+    if(command === 'join') {
+        client.commands.get('join').execute(msg,args);
+    }
 })
 
 
