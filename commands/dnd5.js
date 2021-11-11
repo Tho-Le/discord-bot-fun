@@ -19,20 +19,20 @@ module.exports = {
             .setTitle('DND Help')
             .addFields(
                 {name: 'Spells', value: 'A spell is a discrete magical effect, defined in specific language. A spell has specific things like a name, a defined range, and required components'},
-                {name: 'Monsters'},
-                {name: 'Documents'},
-                {name: 'Backgrounds'},
-                {name: 'Planes'},
-                {name: 'Sections'},
-                {name: 'Feats'},
-                {name: 'Condition'},
-                {name: 'Races'},
-                {name: 'Classes'},
+                {name: 'Monsters', value: 'sdasdasd'},
+                {name: 'Documents', value: 'asdasdasdasdasd'},
+                {name: 'Backgrounds', value: 'asdasdasdasd'},
+                {name: 'Planes', value: 'erererasd'},
+                {name: 'Sections', value: 'asdasdasdasdasd'},
+                {name: 'Feats', value: 'asdasdasdasd'},
+                {name: 'Condition' , value: 'asdasdasdasdas'},
+                {name: 'Races', value: 'jasjkdhjaskdj'},
+                {name: 'Classes', value: 'asdasdasdasd'},
                 {name: 'Magic Items', value: 'Magic items offer a variety of fantastic effects to improve your characters capabilities, ranging from simple and silly like a cup that never runs out of mead to a Circlet of Blasting that can incinerate your foes'},
-                {name: 'Weapons'},
-                {name: 'Search'}
+                {name: 'Weapons', value: 'asdasdasdasd'},
+                {name: 'Search', value: 'asdasdasdasd'}
             );
-            message.channel.send(dndGuideEmbed);
+            message.channel.send({embeds: [dndGuideEmbed]});
         }
         else if(args[0].toLowerCase() === 'spells') {
             let spellsURL = 'https://www.dnd5eapi.co/api/spells/'
@@ -140,7 +140,7 @@ module.exports = {
                 )
                 
 
-                message.channel.send(monsterEmbed)
+                message.channel.send({embeds: [monsterEmbed]})
                 .then(console.log('Message Send Successfully'))
                 .catch(console.error)
                 return;
@@ -179,15 +179,16 @@ module.exports = {
                     return;
                 }
                 console.log(racesDesc.races.get(args[1]));
+                console.log(dnd5Race);
                 let raceEmbed = new MessageEmbed()
-                .setTitle(dnd5Race.name)
-                .setDescription(racesDesc.races.get(args[1]))
-                .addFields(
-                    {name: 'Age', value: dnd5Race.age},
-                    {name: 'Alignment', value: dnd5Race.alignment},
-                    {name: 'Size', value: dnd5Race.size},
-                    {name: 'Speed', value : dnd5Race.speed}
-                )
+                .setTitle(dnd5Race.name.toString())
+                .setDescription(racesDesc.races.get(args[1]));
+                // .addFields(
+                //     {name: 'Age', value: dnd5Race.age},
+                //     {name: 'Alignment', value: dnd5Race.alignment},
+                //     {name: 'Size', value: dnd5Race.size},
+                //     {name: 'Speed', value : dnd5Race.speed}
+                // )
                 message.channel.send(raceEmbed)
                 .then(console.log('Race Embed sent successfully'))
                 .catch(console.error)
