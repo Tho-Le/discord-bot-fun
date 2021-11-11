@@ -7,3 +7,4 @@ do some error checking on most of the commands
 implement a help command
 do some for discord markdown to help formant discord messages. DONE
 implement a feature for the bot to be able to join the voice channel of the user.
+implement a 

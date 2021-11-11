@@ -1,3 +1,11 @@
+//One very important thing I have learn while using npm packages is to make sure EVERYTHING
+//is up to date. Certain packages I was using became out of date and I was getting errors
+//that I wasn't sure why. Eventually I began to suspect that my code was right its just the error
+//was from using outdated packages. Once my update my packages, some stuff broke but once I 
+//fixed everything my code began to work! Euraka!
+
+
+
 // require the needed discord.js classes
 const fs = require('fs');
 
@@ -16,18 +24,18 @@ const prefix = ('!');
 //we store our bots token in a .env file for added projected and added the .env file to
 //gitignore.
 const dotenv = require('dotenv');
+const { createAudioPlayer, joinVoiceChannel } = require('@discordjs/voice');
 
 
 dotenv.config();
 
 // create a new Discord client
-const client = new Client();
+const client = new Client({intents: [Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILDS]});
 
 //Within the client we are adding a new module which in this case is a new collection.
 //The collection is Map which sets a string, and 
 client.commands = new Collection();
 
-const guild = new Guild()
 
 
 
@@ -59,7 +67,7 @@ commandFiles.forEach(file => {
     //since the file in question is export an module and that module is an object. It
     //returns that object.
     const command = require(`./commands/${file}`);
-    console.log(command);
+    //console.log(command);
     //We then map the command name with the specific command with the command object.
     //The command object is the object of the javascript file contain the specific command.
     client.commands.set(command.name, command);
@@ -99,8 +107,9 @@ client.on('guildMemberAdd', member  => {
 //listening on. The msg is and object and we want to get the content of the object.
 //if it starts with ping then the bot will reply with pong.
 */
-client.on('message', msg => {
-    //console.log('We entered message event');
+
+client.on('messageCreate', msg => {
+    console.log('We entered message event');
 
     // msg.guild.roles.cache.find(role => role.name === 'Nope')
     

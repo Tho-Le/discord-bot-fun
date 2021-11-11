@@ -1,9 +1,11 @@
 {
   "dependencies": {
     "@discordjs/voice": "^0.7.2",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
+    "ffmpeg-static": "^4.4.0",
     "libsodium-wrappers": "^0.7.9",
-    "node-fetch": "^2.6.5"
+    "node-fetch": "^2.6.5",
+    "opusscript": "^0.0.8"
   }
 }
