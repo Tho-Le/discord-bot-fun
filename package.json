@@ -2,7 +2,7 @@
   "scripts": {
     "start": "node bot.js"
   },
-  
+
   "dependencies": {
     "@discordjs/voice": "^0.7.2",
     "discord.js": "^13.3.1",
@@ -11,7 +11,14 @@
     "libsodium-wrappers": "^0.7.9",
     "node-fetch": "^2.6.5",
     "opusscript": "^0.0.8"
+  },
+
+  "engines": {
+    "node" : ">= 16.0.0" ,
+    "npm" : ">=7.0.0"
   }
+
+
 
   
 }
