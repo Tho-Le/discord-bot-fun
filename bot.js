@@ -30,7 +30,7 @@ const { createAudioPlayer, joinVoiceChannel } = require('@discordjs/voice');
 dotenv.config();
 
 // create a new Discord client
-const client = new Client({intents: [Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILDS]});
+const client = new Client({intents: [Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES]});
 
 //Within the client we are adding a new module which in this case is a new collection.
 //The collection is Map which sets a string, and 

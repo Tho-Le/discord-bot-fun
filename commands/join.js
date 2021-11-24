@@ -1,4 +1,4 @@
-const { joinVoiceChannel, getVoiceConnection, createAudioPlayer, createAudioResource, StreamType } = require("@discordjs/voice");
+const { joinVoiceChannel, getVoiceConnection, createAudioPlayer, createAudioResource, StreamType ,VoiceConnectionStatus, AudioPlayer, AudioPlayerStatus} = require("@discordjs/voice");
 
 
 module.exports = {
@@ -19,34 +19,51 @@ module.exports = {
         }
 
 
-        // const player = createAudioPlayer();
+        const player = createAudioPlayer();
 
-        // const resource = createAudioResource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', {
-        //     inputType: StreamType.Arbitrary,
-        // });
+        const stream = create
 
-        // console.log('we are before player play resouirce')
-        // player.play(resource);
-        // console.log('we are after play resource');
+        const resource = createAudioResource("https://www.youtube.com/watch?v=PhzOh7BGyr4");
         
-
         const connection = joinVoiceChannel({
             channelId: channel.id,
             guildId: channel.guild.id,
             adapterCreator: channel.guild.voiceAdapterCreator,
         });
 
-        console.log(channel.guild.voiceAdapterCreator)
-        connection.destroy();
+        //console.log(channel.guild.voiceAdapterCreator)
+        //connection.destroy();
         //console.log(channel.guild.id)
         //console.log(connection);
 
-        //connection.subscribe(player)
+        player.play(resource);
 
+        connection.subscribe(player);
+        
+        
+        
+
+        // if(subscription) {
+        //     setTimeout(() => subscription.unsubscribe(), 10_000)
+        // }
+        if(args.length > 0 && args[0] ==='destroy') {
+            connection.destroy();
+        }
+        // connection.on(VoiceConnectionStatus.Ready, () => {
+        //     console.log('The connection has entered the Ready state - ready to play some audioo');
+        //     const subscription = connection.subscribe(player)
+        // })
+       
+        
 
 
         //console.log(message.member.voice.channel.id);
         //connection.ping
+
+        // player.on(AudioPlayerStatus.Idle, () => {
+        //     connection.destroy();
+        //     console.log('The bot was idle. Disconnected.')
+        // })
 
     }
 }
