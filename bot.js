@@ -222,7 +222,7 @@ client.on('messageCreate', msg => {
 
 
 // login to Discord with your app's token
-client.login(process.env.TOKEN);
+client.login("ODcxNDk0MjI5NTAxODA0NjY0.YQcIPw.oSr9x-oil1x8Sg7z0JzOQ9QECgI");
 
 
 
