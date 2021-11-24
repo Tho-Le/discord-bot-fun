@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node bot.js"
+  },
+  
   "dependencies": {
     "@discordjs/voice": "^0.7.2",
     "discord.js": "^13.3.1",
@@ -8,4 +12,6 @@
     "node-fetch": "^2.6.5",
     "opusscript": "^0.0.8"
   }
+
+  
 }
