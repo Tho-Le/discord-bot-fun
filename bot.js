@@ -71,7 +71,7 @@ commandFiles.forEach(file => {
     //We then map the command name with the specific command with the command object.
     //The command object is the object of the javascript file contain the specific command.
     client.commands.set(command.name, command);
-    console.log(client.commands);
+    //console.log(client.commands);
 })
 
 
@@ -109,7 +109,7 @@ client.on('guildMemberAdd', member  => {
 */
 
 client.on('messageCreate', msg => {
-    console.log('We entered message event');
+    //console.log('We entered message event');
 
     // msg.guild.roles.cache.find(role => role.name === 'Nope')
     
