@@ -4,7 +4,8 @@ module.exports = {
     execute(message, args) {
         const channel = message.member.channel;
         if(!channel) {
-            message.channel.send('Join a voice channel first')
+            message.channel.send('Join a voice channel first');
+            
         }
     }
 }
