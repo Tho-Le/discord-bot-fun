@@ -4,9 +4,6 @@ const {MessageEmbed} = require('discord.js');
 
 const racesDesc = require('./resources/dnd5Races')
 
-
-
-
 module.exports = {
     name: 'dnd5',
     description: 'return a help from all',
