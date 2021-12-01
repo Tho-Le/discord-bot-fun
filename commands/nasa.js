@@ -15,11 +15,11 @@ module.exports = {
         .setTitle(astronomeyPic.title)
         .setDescription(astronomeyPic.explanation)
         .setImage(astronomeyPic.url)
-        .setAuthor(astronomeyPic.copyright)
+        .setAuthor(`${astronomeyPic.copyright === undefined ? 'No Author Listed' : astronomeyPic.copyright}`)
         .setURL(astronomeyPic.hdurl)
         .setTimestamp()
 
-        message.channel.send(astronomeyPicEmbed)
+        message.channel.send({embeds:[astronomeyPicEmbed]})
         .then(console.log('astronomy pic send succuessfully'))
         .catch(console.error)
         

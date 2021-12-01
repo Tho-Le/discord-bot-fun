@@ -1,11 +1,11 @@
-const {MessageEmbed} = require('discord.js');
+const {MessageEmbed, Message} = require('discord.js');
 
 
 module.exports = {
 
     name: 'help',
     description: 'Lists all commands availible',
-    execute(msg,args) {
+    execute(message,args) {
         let msgEmbed = new MessageEmbed()
         .setTitle('Bot Commands')
         .addFields(
@@ -23,5 +23,8 @@ module.exports = {
             {name: 'clear', value: 'Clears the pass 5 messages or clear x messages up to a max of 100'},
             
         )
+        message.channel.send({embeds: [msgEmbed]})
+        .then(console.log('Help Embed Message Sent Successfully'))
+        .catch(console.error);
     }
 }

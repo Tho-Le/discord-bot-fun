@@ -183,6 +183,9 @@ client.on('messageCreate', msg => {
     if(command === 'join') {
         client.commands.get('join').execute(msg,args);
     }
+    if(command === 'help') {
+        client.commands.get('help').execute(msg,args);
+    }
 })
 
 

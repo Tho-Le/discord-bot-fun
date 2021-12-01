@@ -57,7 +57,7 @@ module.exports = {
                     {name: 'Duration', value: dnd5Spells.duration},
                     {name: 'Casting Time', value: dnd5Spells.casting_time},
                 )
-                message.channel.send(spellEmbed)
+                message.channel.send({embeds:[spellEmbed]})
                 .then(console.log('message embed send successfully'))
                 .catch(console.error);
                 return
@@ -189,7 +189,7 @@ module.exports = {
                 //     {name: 'Size', value: dnd5Race.size},
                 //     {name: 'Speed', value : dnd5Race.speed}
                 // )
-                message.channel.send(raceEmbed)
+                message.channel.send({embeds:[raceEmbed]})
                 .then(console.log('Race Embed sent successfully'))
                 .catch(console.error)
                 return;
