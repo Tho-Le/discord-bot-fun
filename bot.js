@@ -186,6 +186,9 @@ client.on('messageCreate', msg => {
     if(command === 'help') {
         client.commands.get('help').execute(msg,args);
     }
+    if(command === 'nomine') {
+        client.commands.get('nomine').execute(msg,args);
+    }
 })
 
 
