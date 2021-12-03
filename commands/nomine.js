@@ -1,6 +1,6 @@
 const { joinVoiceChannel, getVoiceConnection, createAudioPlayer, createAudioResource, StreamType, VoiceConnectionStatus, AudioPlayer, AudioPlayerStatus } = require("@discordjs/voice");
 
-//const asd = require('./resources/nomine.MP3')
+
 
 module.exports = {
     name: 'nomine',
@@ -34,9 +34,6 @@ module.exports = {
             console.log('The bot was idle. Disconnected.')
         })
 
-        if (args.length > 0 && args[0] === 'destroy') {
-            connection.destroy();
-        }
 
     }
 }
