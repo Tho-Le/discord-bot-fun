@@ -189,6 +189,9 @@ client.on('messageCreate', msg => {
     if(command === 'nomine') {
         client.commands.get('nomine').execute(msg,args);
     }
+    if(command === 'gibberish') {
+        client.commands.get('gibberish').execute(msg,args);
+    }
 })
 
 
