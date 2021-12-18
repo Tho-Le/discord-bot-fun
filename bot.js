@@ -192,6 +192,9 @@ client.on('messageCreate', msg => {
     if(command === 'gibberish') {
         client.commands.get('gibberish').execute(msg,args);
     }
+    if(command === 'descramble') {
+        client.commands.get('descramble').execute(msg, args);
+    }
 })
 
 
